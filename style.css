@@ -26,7 +26,7 @@
     width: 250px;
     padding: 7px;
     margin: 2px;
-    transition: width 1s;
+    transition: width 0.5s;
 }
 .restaurant-card:hover{
     border:1px solid black;
@@ -46,4 +46,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+.top-rated-res{
+  margin : 10px;
+  cursor: pointer;  
 }
