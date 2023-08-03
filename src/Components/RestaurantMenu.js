@@ -7,39 +7,75 @@ const RestaurantMenu = ()=>{
     const [menuItems1,setMenuItems1] = useState([]); 
 
     const {resId} = useParams();
+    
     useEffect(()=>{
         fetchMenu()
+        
     },[])
+    useEffect(()=>{
+
+        setMenuItems1(resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
+        console.log(menuItems1);
+     
+    },[resInfo])
+    console.log("fetchedddd....");
 
     const fetchMenu = async ()=>{
-            const data = await fetch(MENU_URL  + resId);
+            const data = await fetch(MENU_URL + resId);
             const json = await data.json();
-            console.log(json)
-            setResInfo(json.data)
-            setMenuItems1(json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.categories);
+            setResInfo(json);
+          
+         
+
+            // if (menuItems1==""){
+            //     
+                
+               
+            // }
+            // else{
+            //       setMenuItems1(path_tiffins);
+            // }
+            
+
+           // setMenuItems1(json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.categories);
+
+          //  setMenuItems1(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.itemCards[0]?.card?.info)
+         
             
     };
 
-    if(resInfo==null) return <Shimmer/>;
+    if(resInfo == null) return <Shimmer/>;
 
-   const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info
+   //const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info
+   //const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info
 
-    console.log(menuItems1 );
+
+
 
 
     return (
         <div className="menu ">
-            <h1>{name} </h1>
-            <p>{cuisines.join(", ")} - {costForTwoMessage}</p>
-            <ul>
-            { menuItems1.map((item,i)=>
-            (<div key ={i}><h3>{item?.title} </h3>
-            <ul>{item.itemCards.map((sub)=>
-            <li key={sub.card.info.id}>{sub.card.info.name} - Rs.{sub.card.info.price/100}</li>)}
+            {/* <h1>{name} </h1>
+            <p>{cuisines?.join(", ")} - {costForTwoMessage}</p> */}
+            {/* <ul>
+            {menuItems1.map((item,i)=>
+            (<div key ={i}><h3>{itemCards} </h3>
+            <ul>{item.map((sub)=>
+            <li key={sub.itemCards.card.info.id}>{sub.itemCards.card.info.name} - Rs.{sub.itemCards.card.info.price/100}</li>)}
                
             </ul>
             
             </div>))}
+            </ul> */}
+
+        <ul>
+
+            {menuItems1.map((item,i)=>{
+
+               <li key ={i}>{item.card.info.name} - Rs.{item.card.info.price/100}</li>
+
+               })}
+
             </ul>
           {/* [0].itemCards[0].card.info
 
