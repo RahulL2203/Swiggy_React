@@ -7,4 +7,5 @@ export const IMG_CDN_URL =
 export const MENU_URL = 
 "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.5002987&lng=78.396665&restaurantId="
 
-//https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.5002987&lng=78.396665&restaurantId=16164&catalog_qa=undefined&submitAction=ENTER
+export const CATEGORY_IMG_CDN =
+ "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"

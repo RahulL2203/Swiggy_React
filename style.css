@@ -1,4 +1,9 @@
-.header{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* .header{
     display: flex;
     justify-content: space-between ;
     border: 1px solid black;
@@ -82,3 +87,21 @@
     .filter{
         display: flex;
     }
+
+    .menu-list{
+        font-style:oblique;
+        font-weight: 500;
+        list-style:circle;
+    }
+    .user-card{
+        padding: 10px;
+        border: 1px solid black;
+        margin: 10px;
+    }
+    
+    .listed-items{
+        border: 1px solid black;
+        border-radius: 10px;
+        max-width:max-content;
+        }
+     */
